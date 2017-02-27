@@ -1,22 +1,33 @@
-class Queue
-  def initialize
-  end
+module CSFun
+  class Queue
+    def initialize
+      @store = Array.new
+    end
 
-  def enqueue(element)
-  end
+    def enqueue(element)
+      @store << element
+    end
 
-  def dequeue
-  end
+    def dequeue
+      raise ArgumentError.new("Queue is empty.") if empty?
+      @store.delete_at(0)
+    end
 
-  def front
-  end
+    def front
+      raise ArgumentError.new("Queue is empty.") if empty?
+      @store.first
+    end
 
-  def size
-  end
+    def size
+      @store.length
+    end
 
-  def empty?
-  end
+    def empty?
+      size == 0
+    end
 
-  def to_s
+    def to_s
+      @store.to_s
+    end
   end
 end
